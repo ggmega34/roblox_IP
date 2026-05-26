@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lime5568</title>
+    <!-- Подключение шрифта Audiowide -->
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="top">
+        <div class="main-text">// main //</div>
+        <div class="line"></div>
+    </div>
+
+    <div class="side-buttons">
+        <button class="nav-btn" id="aboutBtn">about</button>
+        <button class="nav-btn" id="configsBtn">configs</button>
+    </div>
+
+    <div class="main-update-note">⚙️ // last update: 25.05.2026</div>
+
+<div id="aboutModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header center-header">
+            <h2>// about //</h2>
+            <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div class="about-section">
+                <p class="about-line">Soon...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="configsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header center-header">
+                <h2>// configs //</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body configs-body-wrapper">
+                <div class="configs-body">
+                    <div class="config-window">
+                        <div class="configs-line no-line">clientmod</div>
+                        <div class="configs-line with-line">last updated: 25.05.2026</div>
+                        <button class="download-btn">download</button>
+                    </div>
+                    <div class="config-window">
+                        <div class="configs-line no-line">?</div>
+                        <div class="configs-line with-line">last updated: ?</div>
+                        <button class="download-btn">download</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const aboutBtn = document.getElementById('aboutBtn');
+        const aboutModal = document.getElementById('aboutModal');
+        const aboutClose = aboutModal.querySelector('.close');
+
+        aboutBtn.onclick = function() {
+            aboutModal.style.display = 'flex';
+        }
+        aboutClose.onclick = function() {
+            aboutModal.style.display = 'none';
+        }
+
+        const configsBtn = document.getElementById('configsBtn');
+        const configsModal = document.getElementById('configsModal');
+        const configsClose = configsModal.querySelector('.close');
+
+        configsBtn.onclick = function() {
+            configsModal.style.display = 'flex';
+        }
+        configsClose.onclick = function() {
+            configsModal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target === aboutModal) {
+                aboutModal.style.display = 'none';
+            }
+            if (event.target === configsModal) {
+                configsModal.style.display = 'none';
+            }
+        }
+
+        const downloadBtns = document.querySelectorAll('.download-btn');
+        downloadBtns.forEach(btn => {
+            btn.onclick = function(e) {
+                e.stopPropagation();
+                alert('soon');
+            }
+        });
+    </script>
+</body>
+</html>
